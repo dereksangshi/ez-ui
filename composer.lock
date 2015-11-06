@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2b805b8fd23654e509d413e259dddecf",
+    "hash": "a2d9ecdc4a97093a06205a52243d37ac",
     "packages": [
         {
             "name": "ez/html",
-            "version": "0.1.0",
+            "version": "v1.0.0",
             "source": {
-                "type": "hg",
-                "url": "https://bitbucket.org/dereksangshi2000/ez-html",
-                "reference": "df171d2ebb9fdc218845e26f91834217309fdc43"
+                "type": "git",
+                "url": "https://github.com/dereksangshi/ez-html.git",
+                "reference": "643a2a09ac591f3528f0995e13484396cb6349d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/dereksangshi2000/ez-html/get/df171d2ebb9fdc218845e26f91834217309fdc43.zip",
-                "reference": "df171d2ebb9fdc218845e26f91834217309fdc43",
+                "url": "https://api.github.com/repos/dereksangshi/ez-html/zipball/643a2a09ac591f3528f0995e13484396cb6349d9",
+                "reference": "643a2a09ac591f3528f0995e13484396cb6349d9",
                 "shasum": ""
             },
             "archive": {
@@ -63,7 +63,130 @@
                 "data",
                 "html"
             ],
-            "time": "2015-09-09 03:34:23"
+            "support": {
+                "source": "https://github.com/dereksangshi/ez-html/tree/master",
+                "issues": "https://github.com/dereksangshi/ez-html/issues"
+            },
+            "time": "2015-10-12 03:28:29"
+        },
+        {
+            "name": "ez/observer",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dereksangshi/ez-observer.git",
+                "reference": "36e2620e327544a729660e9d125aabbcac0b033f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dereksangshi/ez-observer/zipball/36e2620e327544a729660e9d125aabbcac0b033f",
+                "reference": "36e2620e327544a729660e9d125aabbcac0b033f",
+                "shasum": ""
+            },
+            "archive": {
+                "exclude": [
+                    "!vendor",
+                    "tests",
+                    "*phpunit.xml",
+                    ".travis.yml",
+                    "build.xml",
+                    "build.properties",
+                    "composer.phar"
+                ]
+            },
+            "require": {
+                "ext-weakref": "*",
+                "php": ">=5.3.2",
+                "symfony/console": "~2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "suggest": {
+                "symfony/console": "For helpful console commands to test."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Ez\\Observer\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Derek Li",
+                    "email": "dereksangshi2000@gmail.com.au"
+                }
+            ],
+            "description": "Ez Observer",
+            "homepage": "https://bitbucket.org/dereksangshi2000/ez-observer",
+            "keywords": [
+                "future",
+                "observer"
+            ],
+            "support": {
+                "source": "https://github.com/dereksangshi/ez-observer/tree/v1.0.0",
+                "issues": "https://github.com/dereksangshi/ez-observer/issues"
+            },
+            "time": "2015-11-06 04:46:46"
+        },
+        {
+            "name": "symfony/console",
+            "version": "v2.7.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/console.git",
+                "reference": "5efd632294c8320ea52492db22292ff853a43766"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/console/zipball/5efd632294c8320ea52492db22292ff853a43766",
+                "reference": "5efd632294c8320ea52492db22292ff853a43766",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/event-dispatcher": "~2.1",
+                "symfony/process": "~2.1"
+            },
+            "suggest": {
+                "psr/log": "For using the console logger",
+                "symfony/event-dispatcher": "",
+                "symfony/process": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Console\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Console Component",
+            "homepage": "https://symfony.com",
+            "time": "2015-10-20 14:38:46"
         }
     ],
     "packages-dev": [
@@ -430,81 +553,21 @@
             "time": "2013-01-13 10:24:48"
         },
         {
-            "name": "symfony/console",
-            "version": "v2.7.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/Console.git",
-                "reference": "9ff9032151186bd66ecee727d728f1319f52d1d8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/9ff9032151186bd66ecee727d728f1319f52d1d8",
-                "reference": "9ff9032151186bd66ecee727d728f1319f52d1d8",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.9"
-            },
-            "require-dev": {
-                "psr/log": "~1.0",
-                "symfony/event-dispatcher": "~2.1",
-                "symfony/phpunit-bridge": "~2.7",
-                "symfony/process": "~2.1"
-            },
-            "suggest": {
-                "psr/log": "For using the console logger",
-                "symfony/event-dispatcher": "",
-                "symfony/process": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Console\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Console Component",
-            "homepage": "https://symfony.com",
-            "time": "2015-09-03 11:40:38"
-        },
-        {
             "name": "symfony/yaml",
-            "version": "v2.7.4",
+            "version": "v2.7.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Yaml.git",
-                "reference": "2dc7b06c065df96cc686c66da2705e5e18aef661"
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "eca9019c88fbe250164affd107bc8057771f3f4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/2dc7b06c065df96cc686c66da2705e5e18aef661",
-                "reference": "2dc7b06c065df96cc686c66da2705e5e18aef661",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/eca9019c88fbe250164affd107bc8057771f3f4d",
+                "reference": "eca9019c88fbe250164affd107bc8057771f3f4d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.9"
-            },
-            "require-dev": {
-                "symfony/phpunit-bridge": "~2.7"
             },
             "type": "library",
             "extra": {
@@ -533,7 +596,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2015-08-24 07:13:45"
+            "time": "2015-10-11 09:39:48"
         }
     ],
     "aliases": [],

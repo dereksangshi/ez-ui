@@ -8,18 +8,19 @@ use Ez\Html\Li;
 use Ez\Html\Span;
 
 /**
- * Class HashList
+ * Class ArrayList
+ *
  * @package Ez\Ui
  * @author Derek Li
  */
-class HashList extends Div
+class ArrayList extends Div
 {
     /**
-     * The hash (data).
+     * The array (data).
      *
      * @var array
      */
-    protected $hash = array();
+    protected $array = array();
 
     /**
      * If the ul has been drawn.
@@ -31,47 +32,58 @@ class HashList extends Div
     /**
      * Constructor.
      *
-     * @param array $hash The given hash.
+     * @param array $array The given array.
      */
-    public function __construct(array $hash = null)
+    public function __construct(array $array = null)
     {
-        if (isset($hash)) {
-            $this->hash($hash);
+        if (isset($array)) {
+            $this->setArray($array);
         }
     }
 
-    public function hash(array $hash = null)
+    /**
+     * @param array|null $array
+     * @return $this
+     */
+    public function setArray(array $array = null)
     {
-        if (!isset($hash)) {
-            return $this->hash;
-        } else {
-            $this->hash = $hash;
-        }
+        $this->array = $array;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getArray()
+    {
+        return $this->array;
     }
 
     /**
      * Draw the HTML ul based on the given data.
      *
+     * @return $this
      */
     public function draw()
     {
-        $hash = $this->hash();
-        if (is_array($hash)) {
+        $array = $this->getArray();
+        if (is_array($array)) {
             $rootUl = new Ul();
             $rootUl->attr('class', 'hl-ul');
             $this->add($rootUl);
-            $this->_drawRecursively($rootUl, $hash);
+            $this->drawRecursively($rootUl, $array);
         }
         $this->isDrawn = true;
+        return $this;
     }
 
     /**
-     * Recursively create a Ul based on the given hash (array).
+     * Recursively create a Ul based on the given array (array).
      *
      * @param Ul $ul The ul container.
      * @param mixed $children The children.
      */
-    protected function _drawRecursively($ul, $children)
+    protected function drawRecursively($ul, $children)
     {
         if (is_array($children)) {
             foreach ($children as $label => $subChildren) {
@@ -86,15 +98,15 @@ class HashList extends Div
                     $subUl = new Ul();
                     $subUl->attr('class', 'hl-sub-ul');
                     $li->add($subUl);
-                    $this->_drawRecursively($subUl, $subChildren);
+                    $this->drawRecursively($subUl, $subChildren);
                 } else {
-                    $this->_addChild($li, $subChildren, $label);
+                    $this->addChild($li, $subChildren, $label);
                 }
             }
         } else {
             $li = new Li();
             $ul->add($li);
-            $this->_addChild($li, $children);
+            $this->addChild($li, $children);
         }
     }
 
@@ -104,8 +116,9 @@ class HashList extends Div
      * @param Li $li The list to add to.
      * @param mixed $content The content to add.
      * @param null|mixed $label OPTIONAL the label to add.
+     * @return $this
      */
-    protected function _addChild($li, $content, $label = null)
+    protected function addChild($li, $content, $label = null)
     {
         if ($label) {
             $labelSpan = new Span();
@@ -117,9 +130,10 @@ class HashList extends Div
         $contentSpan->attr('class', 'hl-content')
             ->add($content);
         $li->add($contentSpan);
+        return $this;
     }
 
-    /**\
+    /**
      * Override parent method.
      * Return the html.
      *
