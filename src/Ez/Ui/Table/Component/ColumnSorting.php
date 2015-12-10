@@ -128,8 +128,9 @@ class ColumnSorting implements ComponentInterface
                     ColumnSorting::ORDER_BY_DIR,
                     $self->getOrderByDir($thId) == 'desc' ? 'asc' : 'desc'
                 );
-                $th->attr('ng-click', "reloadTable({$reloadParams})");
-
+                $th
+                    ->attr('onclick', "jQuery.ezpjaxtable.ezTableReload({$reloadParams})")
+                    ->attr('params', $reloadParams);
             }
         });
         return $this;

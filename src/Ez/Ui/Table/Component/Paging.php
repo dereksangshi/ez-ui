@@ -173,7 +173,12 @@ class Paging implements ComponentInterface
         $paging->add($pageMenuWrapper);
         $firstPage = new A();
         $reloadParams = sprintf("{'%s':'%d'}", self::CURRENT_PAGE, 1);
-        $firstPage->attr(array('class' => 'FIRST MOV', 'page' => 1, 'ng-click' => "reloadTable({$reloadParams})"));
+        $firstPage->attr(array(
+            'class' => 'FIRST MOV',
+            'page' => 1,
+            'onclick' => "jQuery.ezpjaxtable.ezTableReload({$reloadParams})",
+            'params' => $reloadParams
+        ));
         $firstPage->add('|<');
         $pageMenu->add($firstPage);
         $previousPage = new A();
@@ -183,14 +188,20 @@ class Paging implements ComponentInterface
             $reloadParams = sprintf("{'%s':'%d'}", self::CURRENT_PAGE, $prePage);
             $previousPage
                 ->attr('page', $prePage)
-                ->attr('ng-click', "reloadTable({$reloadParams})");
+                ->attr('onclick', "jQuery.ezpjaxtable.ezTableReload({$reloadParams})")
+                ->attr('params', $reloadParams);
         }
         $previousPage->add('<');
         $pageMenu->add($previousPage);
         for ($i = $startPage; $i <= $finishPage; $i++) {
             $pager = new A();
             $reloadParams = sprintf("{'%s':'%d'}", self::CURRENT_PAGE, $i);
-            $pager->attr(array('page' => $i, 'class' => 'P', 'ng-click' => "reloadTable({$reloadParams})"));
+            $pager->attr(array(
+                'page' => $i,
+                'class' => 'P',
+                'onclick' => "jQuery.ezpjaxtable.ezTableReload({$reloadParams})",
+                'params' => $reloadParams
+            ));
             if ($i == $currentPage) {
                 $pager->addClass('ACTIVE');
             }
@@ -204,7 +215,8 @@ class Paging implements ComponentInterface
             $reloadParams = sprintf("{'%s':'%d'}", self::CURRENT_PAGE, $nexPage);
             $nextPage
                 ->attr('page', $nexPage)
-                ->attr('ng-click', "reloadTable({$reloadParams})");
+                ->attr('onclick', "jQuery.ezpjaxtable.ezTableReload({$reloadParams})")
+                ->attr('params', $reloadParams);
         }
         $nextPage->add('>');
         $pageMenu->add($nextPage);
@@ -212,7 +224,8 @@ class Paging implements ComponentInterface
         $lastPage->attr(array('class' => 'LAST MOV', 'page' => $totalPages));
         $reloadParams = sprintf("{'%s':'%d'}", self::CURRENT_PAGE, $totalPages);
         $lastPage
-            ->attr('ng-click', "reloadTable({$reloadParams})")
+            ->attr('onclick', "jQuery.ezpjaxtable.ezTableReload({$reloadParams})")
+            ->attr('params', $reloadParams)
             ->add('>|');
         $pageMenu->add($lastPage);
         // To page
@@ -226,7 +239,7 @@ class Paging implements ComponentInterface
         $toPage->attr(array('class' => 'TOPAGE', 'ng-model' => 'toPage'));
         $pageJump->add($toPage);
         $goButton = new Span();
-        $goButton->attr(array('class' => 'GO', 'ng-click' => 'toPageInput()'));
+        $goButton->attr(array('class' => 'GO', 'onclick' => 'jQuery.ezpjaxtable.ezTableReloadToPage()'));
         $goButton->add('Go');
         $pageJump->add($goButton);
         $paging->add($pageJump);
