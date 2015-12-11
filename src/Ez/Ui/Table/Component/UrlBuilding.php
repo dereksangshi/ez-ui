@@ -81,11 +81,11 @@ class UrlBuilding implements ComponentInterface
             $urlBuildingContainer->attr(array('class'=>'BIT-E-URL', 'style'=>'display:none'));
             $uriContainer = new Div();
             $uriContainer->attr(array('class'=>'uri'));
-            $uriContainer->add($this->getUri());
+            $uriContainer->add($self->getUri());
             $urlBuildingContainer->add($uriContainer);
             $urlParamsContainer = new Div();
             $urlParamsContainer->attr(array('class'=>'params'));
-            $urlParamsContainer->add(json_encode($this->getUrlPrarms()));
+            $urlParamsContainer->add(json_encode($self->getUrlPrarms()));
             $urlBuildingContainer->add($urlParamsContainer);
             $bottomToolbar->add($urlBuildingContainer);
         });
